@@ -1,0 +1,15 @@
+
+.nav {
+    grid-area: nav;
+  background-color: rgb(43, 202, 43);
+  text-align: center;
+  }
+  
+ a {
+      color: whitesmoke;
+      text-decoration: none;
+  }
+
+  .nav div {
+      margin-top: 15px;
+  }
