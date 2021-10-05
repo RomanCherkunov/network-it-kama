@@ -1,6 +1,7 @@
 import './App.css'
 import Header from './components/Header/Header'
 import Main from './components/Main/Main'
+import Messages from './components/Messages/Messages'
 import Nav from './components/Nav/Nav'
 
 const App = () => {
@@ -8,7 +9,8 @@ const App = () => {
     <div className="app">
       <Header />
       <Nav />
-      <Main />
+      {/* <Main /> */}
+      <Messages />
     </div>
   )
 }
