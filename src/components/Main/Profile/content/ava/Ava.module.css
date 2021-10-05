@@ -1,0 +1,8 @@
+.avatar {
+  width: 300px;
+  border: 1px solid black;
+}
+
+.avatar img {
+  width: 100%;
+}

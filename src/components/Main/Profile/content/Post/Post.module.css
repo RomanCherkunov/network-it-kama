@@ -1,0 +1,26 @@
+.post {
+    position: relative;
+    width: 80%;
+    display: flex;
+    margin-bottom: 50px;
+}
+
+.post img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.postMessage {
+    padding-left: 15px;
+}
+
+.likes {
+    position: absolute;
+    bottom: 0px;
+    right: 0%;
+}
+
+.like {
+    margin-left: 40px;
+}
