@@ -1,0 +1,11 @@
+.person {
+    padding: 30px 30px 0 50px;
+}
+
+.person ul li a {
+    color: grey;
+}
+
+.active {
+    color: rgb(238, 0, 0);
+}

@@ -10,6 +10,18 @@
       text-decoration: none;
   }
 
+  a:hover {
+      color: blueviolet;
+  }
+
+  a:active {
+      color: rgb(174, 114, 189);
+  }
+
   .nav div {
       margin-top: 15px;
+  }
+
+  .active {
+      color: rgb(184, 97, 255);
   }

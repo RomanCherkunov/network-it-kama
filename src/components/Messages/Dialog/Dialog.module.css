@@ -1,0 +1,22 @@
+.dialog img {
+    width: 70px;
+    border-radius: 50%;
+}
+.dialog {
+    display: flex;
+    margin-bottom: 80px;
+}
+
+
+.imgName {
+    margin-left: 50px;
+    text-align: center;
+}
+
+.message {
+margin-left: 70px;
+padding: 20px;
+border: 1px solid rgb(136, 136, 136);
+border-radius: 15px;
+background: rgb(215, 255, 219);
+}
