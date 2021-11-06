@@ -1,12 +1,24 @@
 import React from 'react'
 import classes from './Addpost.module.css'
 
-function Addpost() {
+function Addpost(props) {
+
+    let newPostElement = React.createRef()
+
+    function addPostButtonClick() {
+        props.addPost()
+    }
+
+    function onPostTextChange() {
+        let text = newPostElement.current.value
+        props.updateNewPostText(text)
+    }
+
     return (
         <div className={classes.addpost}>
             <p>Write post</p>
-            <textarea></textarea>
-            <button className="button">Add post</button>
+            <textarea onChange={onPostTextChange}  ref={newPostElement} value={props.newPostText} />
+            <button className="button" onClick={addPostButtonClick} >Add post</button>
         </div>
     )
 }

@@ -4,15 +4,15 @@ import Addpost from './Profile/content/Addpost'
 import Myposts from './Profile/content/Myposts'
 import classes from './Main.module.css'
 
-const Main = () => {
+const Main = (props) => {
   return (
   <main className={classes.main}>
     <div className={classes.block}>
         <Ava />
         <About />
     </div>
-    <Addpost />
-    <Myposts />
+    <Addpost addPost={props.addPost} newPostText={props.state.newPostText} updateNewPostText={props.updateNewPostText} />
+    <Myposts postsData={props.state.postsData} />
   </main>
   )
 }

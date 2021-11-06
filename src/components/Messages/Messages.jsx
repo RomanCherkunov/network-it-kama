@@ -4,19 +4,33 @@ import classes from './Messages.module.css'
 import Person from './person/Person'
 // import { Route } from 'react-router-dom';
 
-function Messages() {
+function Messages(props) {
+
+
+    let person = props.state.personsData.map((p) => <Person name={p.name} id={p.id} />)
+
+    let dialog = props.state.dialogsData.map((p) => <Dialog message={p.message} />)
+
+    let textMessage = React.createRef()
+
+    function sendMessage() {
+        props.addDialog()
+    }
+
+    function onMessageChangeText() {
+        let text = textMessage.current.value
+        props.updateNewMessageText(text)
+    }
+
     return (
         <div className={classes.messages}>
             <div className={classes.people}>
-                <Person name='Alex' id='1' />
-                <Person name='Lena' id='2' />
-                <Person name='Bob' id='3' />
-                <Person name='Anna' id='4' />
+                         {person}
             </div>
             <div className={classes.dialogs}>
-            <Dialog message='Hello' />
-            <Dialog message='My name is sosiska' />
-            <Dialog message='How are you' />
+                         {dialog}
+                <textarea value={props.state.newMessageText} onChange={onMessageChangeText} ref={textMessage} cols="30" rows="10"></textarea>
+                <button onClick={sendMessage}>Send</button>
             </div>
         </div>
     )
