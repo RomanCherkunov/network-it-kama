@@ -1,6 +1,6 @@
 import React from 'react'
 import classes from './Addpost.module.css'
-import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../../redux/state'
+import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../../redux/profile_reducer'
 
 function Addpost(props) {
 
