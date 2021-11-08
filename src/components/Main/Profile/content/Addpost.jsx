@@ -1,23 +1,25 @@
 import React from 'react'
 import classes from './Addpost.module.css'
+import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../../redux/state'
 
 function Addpost(props) {
 
-    let newPostElement = React.createRef()
+    // let newPostElement = React.createRef()
 
     function addPostButtonClick() {
-        props.addPost()
+        props.dispatch(addPostActionCreator())
     }
 
-    function onPostTextChange() {
-        let text = newPostElement.current.value
-        props.updateNewPostText(text)
+    function onPostTextChange(e) {
+        let text = e.target.value
+        let action = updateNewPostTextActionCreator(text)
+        props.dispatch(action)
     }
 
     return (
         <div className={classes.addpost}>
             <p>Write post</p>
-            <textarea onChange={onPostTextChange}  ref={newPostElement} value={props.newPostText} />
+            <textarea onChange={onPostTextChange} value={props.newPostText} />
             <button className="button" onClick={addPostButtonClick} >Add post</button>
         </div>
     )

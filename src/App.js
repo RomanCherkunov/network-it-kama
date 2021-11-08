@@ -1,4 +1,3 @@
-// import { BrowserRouter } from 'react-router-dom'
 import { Route } from 'react-router-dom'
 import './App.css'
 import Header from './components/Header/Header'
@@ -12,8 +11,10 @@ const App = (props) => {
       <div className="app">
         <Header />
         <Nav />
-      <Route path='/profile' render={() => <Main state={props.state} addPost={props.addPost} updateNewPostText={props.updateNewPostText} />} />
-        <Route path='/messages' render={() => <Messages state={props.state} addDialog={props.addDialog} updateNewMessageText={props.updateNewMessageText} />} />
+        <Route path='/profile' render={() => <Main state={props.state} 
+                                                   dispatch={props.dispatch} />} />
+        <Route path='/messages' render={() => <Messages state={props.state} 
+                                                         dispatch={props.dispatch} />} />
       </div>
   )
 }

@@ -10,5 +10,11 @@
 
 .dialogs {
     width: 70%;
+    height: 100vh;
     background-color: rgb(192, 192, 192);
+}
+
+.scroll {
+    height: 60%;
+    overflow-y: scroll;
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import Dialog from './Dialog/Dialog'
 import classes from './Messages.module.css'
 import Person from './person/Person'
-// import { Route } from 'react-router-dom';
+import { addDialogActionCreator, updateNewMessageTextActionCreator } from '../../redux/state'
 
 function Messages(props) {
 
@@ -11,15 +11,16 @@ function Messages(props) {
 
     let dialog = props.state.dialogsData.map((p) => <Dialog message={p.message} />)
 
-    let textMessage = React.createRef()
+    // let textMessage = React.createRef()
 
     function sendMessage() {
-        props.addDialog()
+        props.dispatch(addDialogActionCreator())
     }
 
-    function onMessageChangeText() {
-        let text = textMessage.current.value
-        props.updateNewMessageText(text)
+    function onMessageChangeText(e) {
+        let text = e.target.value
+        let action = updateNewMessageTextActionCreator(text)
+        props.dispatch(action)
     }
 
     return (
@@ -28,8 +29,11 @@ function Messages(props) {
                          {person}
             </div>
             <div className={classes.dialogs}>
-                         {dialog}
-                <textarea value={props.state.newMessageText} onChange={onMessageChangeText} ref={textMessage} cols="30" rows="10"></textarea>
+                    <div className={classes.scroll}>
+                        {dialog}
+                    </div>
+                         
+                <textarea className={classes.area} value={props.state.newMessageText} onChange={onMessageChangeText} cols="30" rows="10"></textarea>
                 <button onClick={sendMessage}>Send</button>
             </div>
         </div>
