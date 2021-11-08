@@ -1,3 +1,8 @@
+
+import profileReducer from './profile_reducer';
+import { dialogsReducer } from './dialogs_reducer';
+
+
 const ADD_POST = 'ADD-POST'
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 
@@ -11,27 +16,34 @@ let store = {
     },
 
     _state: {
-        newPostText: 'new post text',
-        newMessageText: 'new message text',
-        postsData: [
-            {text: 'super message number 1', likes: '1', dislikes:'0'},
-            {text: 'super message number 2', likes: '2', dislikes:'1'},
-            {text: 'super message number 3', likes: '3', dislikes:'2'},
-            {text: 'super message number 3', likes: '3', dislikes:'2'},
-        ],
+        
+        profilePage : {
+                        newPostText: 'new post text',
+            postsData: [
+                {text: 'super message number 1', likes: '1', dislikes:'0'},
+                {text: 'super message number 2', likes: '2', dislikes:'1'},
+                {text: 'super message number 3', likes: '3', dislikes:'2'},
+                {text: 'super message number 3', likes: '3', dislikes:'2'},
+            ],
+            },
 
-        personsData: [
-            {name: 'Alex', id: '1'},
-            {name: 'Sveta', id: '2'},
-            {name: 'Anna', id: '3'},
-            {name: 'Sergey', id: '4'},
-        ],
+        
+        dialogsPage: {
+                        newMessageText: 'new message text',
+            personsData: [
+                {name: 'Alex', id: '1'},
+                {name: 'Sveta', id: '2'},
+                {name: 'Anna', id: '3'},
+                {name: 'Sergey', id: '4'},
+            ],
 
-        dialogsData: [
-            {message: 'hello'},
-            {message: 'how are you'},
-            {message: 'I\'m okey'},
-        ]
+            dialogsData: [
+                {message: 'hello'},
+                {message: 'how are you'},
+                {message: 'I\'m okey'},
+            ]
+            },
+
     },
 
     getState() {
@@ -43,31 +55,11 @@ let store = {
     },
 
     dispatch(action) {
-        
-            if(action.type ==='ADD-POST') {
-                    const newPost = {
-                        id: 5,
-                        text: this._state.newPostText,
-                        likes: 1,
-                        dislikes: 1
-                    }
-                    this._state.postsData.push(newPost)
-                    this._state.newPostText = ''
-                    this._rerenderEntireTree(this._state)
-            } else if(action.type === 'UPDATE-NEW-POST-TEXT') {
-                        this._state.newPostText = action.newText
-                        this._rerenderEntireTree(this._state)
-            } else if(action.type === 'ADD-DIALOG') {
-                        const newDialog = {
-                            message: this._state.newMessageText
-                        }
-                        this._state.dialogsData.push(newDialog)
-                        this._state.newMessageText = ''
-                        this._rerenderEntireTree(this._state)
-            } else if(action.type === 'UPDATE-NEW-MESSAGE-TEXT')  {
-                        this._state.newMessageText = action.newText
-                        this._rerenderEntireTree(this._state)
-            }     
+
+       this._state.postsData = profileReducer(this._state.profilePage, action)
+       this._state.dialogsData = dialogsReducer(this._state.dialogsPage, action)
+
+       this._rerenderEntireTree(this._state)
     },
 
 

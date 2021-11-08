@@ -7,9 +7,9 @@ import { addDialogActionCreator, updateNewMessageTextActionCreator } from '../..
 function Messages(props) {
 
 
-    let person = props.state.personsData.map((p) => <Person name={p.name} id={p.id} />)
+    let person = props.state.dialogsPage.personsData.map((p) => <Person name={p.name} id={p.id} />)
 
-    let dialog = props.state.dialogsData.map((p) => <Dialog message={p.message} />)
+    let dialog = props.state.dialogsPage.dialogsData.map((p) => <Dialog message={p.message} />)
 
     // let textMessage = React.createRef()
 
@@ -33,7 +33,7 @@ function Messages(props) {
                         {dialog}
                     </div>
                          
-                <textarea className={classes.area} value={props.state.newMessageText} onChange={onMessageChangeText} cols="30" rows="10"></textarea>
+                <textarea className={classes.area} value={props.state.dialogsPage.newMessageText} onChange={onMessageChangeText} cols="30" rows="10"></textarea>
                 <button onClick={sendMessage}>Send</button>
             </div>
         </div>

@@ -11,8 +11,8 @@ const Main = (props) => {
         <Ava />
         <About />
     </div>
-    <Addpost dispatch={props.dispatch} newPostText={props.state.newPostText}  />
-    <Myposts postsData={props.state.postsData} />
+    <Addpost dispatch={props.dispatch} newPostText={props.state.profilePage.newPostText}  />
+    <Myposts postsData={props.state.profilePage.postsData} />
   </main>
   )
 }
