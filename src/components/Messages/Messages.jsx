@@ -6,10 +6,12 @@ import { addDialogActionCreator, updateNewMessageTextActionCreator } from '../..
 
 function Messages(props) {
 
+    let state = props.store.getState().dialogsPage
 
-    let person = props.state.dialogsPage.personsData.map((p) => <Person name={p.name} id={p.id} />)
+    let person = state.personsData.map((p) => <Person name={p.name} id={p.id} />)
 
-    let dialog = props.state.dialogsPage.dialogsData.map((p) => <Dialog message={p.message} />)
+    let dialog = state.dialogsData.map((p) => <Dialog message={p.message} />)
+    let newMessageBody = state.newMessageBody
 
     // let textMessage = React.createRef()
 

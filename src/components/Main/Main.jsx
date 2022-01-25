@@ -1,8 +1,8 @@
 import Ava from './Profile/content/ava/Ava'
 import About from './Profile/content/About'
-import Addpost from './Profile/content/Addpost'
 import Myposts from './Profile/content/Myposts'
 import classes from './Main.module.css'
+import AddpostContainer from './Profile/content/AddpostContainer'
 
 const Main = (props) => {
   return (
@@ -11,8 +11,8 @@ const Main = (props) => {
         <Ava />
         <About />
     </div>
-    <Addpost dispatch={props.dispatch} newPostText={props.state.profilePage.newPostText}  />
-    <Myposts postsData={props.state.profilePage.postsData} />
+    <AddpostContainer store={props.store} state={props.state} dispatch={props.dispatch}  />
+    <Myposts state={props.state}  />
   </main>
   )
 }

@@ -11,7 +11,7 @@ let store = {
     _state: {
         
         profilePage : {
-                        newPostText: 'new post text',
+            newPostText: 'new post text',
             postsData: [
                 {text: 'super message number 1', likes: '1', dislikes:'0'},
                 {text: 'super message number 2', likes: '2', dislikes:'1'},
@@ -22,7 +22,7 @@ let store = {
 
         
         dialogsPage: {
-                        newMessageText: 'new message text',
+            newMessageText: 'new message text',
             personsData: [
                 {name: 'Alex', id: '1'},
                 {name: 'Sveta', id: '2'},
