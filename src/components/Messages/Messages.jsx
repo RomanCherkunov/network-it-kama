@@ -6,23 +6,22 @@ import { addDialogActionCreator, updateNewMessageTextActionCreator } from '../..
 
 function Messages(props) {
 
-    let state = props.store.getState().dialogsPage
+    // let state = props.store.getState().dialogsPage
 
-    let person = state.personsData.map((p) => <Person name={p.name} id={p.id} />)
+    let person = props.personsData.map((p) => <Person name={p.name} id={p.id} />)
 
-    let dialog = state.dialogsData.map((p) => <Dialog message={p.message} />)
-    let newMessageBody = state.newMessageBody
+    let dialog = props.dialogsData.map((p) => <Dialog message={p.message} />)
+    // let newMessageBody = state.newMessageBody
 
     // let textMessage = React.createRef()
 
     function sendMessage() {
-        props.dispatch(addDialogActionCreator())
+        props.sendMessage()
     }
 
     function onMessageChangeText(e) {
         let text = e.target.value
-        let action = updateNewMessageTextActionCreator(text)
-        props.dispatch(action)
+        props.onMessageChangeText(text)
     }
 
     return (
@@ -35,7 +34,7 @@ function Messages(props) {
                         {dialog}
                     </div>
                          
-                <textarea className={classes.area} value={props.state.dialogsPage.newMessageText} onChange={onMessageChangeText} cols="30" rows="10"></textarea>
+                <textarea className={classes.area} value={props.newMessageText} onChange={onMessageChangeText} cols="30" rows="10"></textarea>
                 <button onClick={sendMessage}>Send</button>
             </div>
         </div>

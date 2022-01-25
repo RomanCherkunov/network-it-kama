@@ -5,14 +5,16 @@ import classes from './Main.module.css'
 import AddpostContainer from './Profile/content/AddpostContainer'
 
 const Main = (props) => {
+
+  let state = props.store.getState().profilePage
   return (
   <main className={classes.main}>
     <div className={classes.block}>
         <Ava />
         <About />
     </div>
-    <AddpostContainer store={props.store} state={props.state} dispatch={props.dispatch}  />
-    <Myposts state={props.state}  />
+    <AddpostContainer store={props.store} state={props.state} />
+    <Myposts state={state}  />
   </main>
   )
 }

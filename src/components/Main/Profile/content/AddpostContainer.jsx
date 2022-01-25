@@ -3,7 +3,6 @@ import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../.
 import Addpost from './Addpost'
 
 function AddpostContainer(props) {
-
     function addPostButtonClick() {
         props.store.dispatch(addPostActionCreator())
     }
