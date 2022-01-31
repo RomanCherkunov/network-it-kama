@@ -11,11 +11,8 @@ const App = (props) => {
       <div className="app">
         <Header />
         <Nav />
-        <Route path='/profile' render={() => <Main state={props.state} 
-                                                   dispatch={props.dispatch}
-                                                   store={props.store} />} />
-        <Route path='/messages' render={() => <MessagesContainer
-                                                         store={props.store} />} />
+        <Route path='/profile' render={() => <Main />} />
+        <Route path='/messages' render={() => <MessagesContainer />} />
       </div>
   )
 }

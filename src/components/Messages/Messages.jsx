@@ -8,9 +8,9 @@ function Messages(props) {
 
     // let state = props.store.getState().dialogsPage
 
-    let person = props.personsData.map((p) => <Person name={p.name} id={p.id} />)
+    let person = props.personsData.map((p) => <Person name={p.name} id={p.id} key={p.id} />)
 
-    let dialog = props.dialogsData.map((p) => <Dialog message={p.message} />)
+    let dialog = props.dialogsData.map((p) => <Dialog message={p.message} key={p.id} />)
     // let newMessageBody = state.newMessageBody
 
     // let textMessage = React.createRef()
