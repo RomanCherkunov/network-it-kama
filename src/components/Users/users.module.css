@@ -1,0 +1,55 @@
+.userAvatarka {
+    width: 100px;
+    display: block;
+}
+
+.userWrapper {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.userInfo {
+    display: flex;
+    width: 600px;
+    border: 1px solid black;
+    border-radius: 30px;
+    margin: 10px;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.avafollow {
+    text-align: center;
+}
+
+.infocontent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.fullname {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.location {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(100, 100, 145);
+}
+
+button {
+    width: 80px;
+    height: 30px;
+    margin-top: 5px;
+}
+
+.follow {
+    background-color: lightgreen;
+}
+
+.selectedPage {
+    font-size: 26px;
+    font-weight: bold;
+}
