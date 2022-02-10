@@ -2,3 +2,7 @@
     grid-area: header;
     background-color: rgb(219, 130, 130);
     }
+
+    .loginBlock {
+        text-align: right;
+    }

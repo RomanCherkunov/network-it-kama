@@ -8,3 +8,18 @@
 .block {
   display: flex;
 }
+
+.avatar {
+  width: 400px;
+  border: 1px solid black;
+}
+
+.avatar img {
+  width: 100%;
+}
+
+.about {
+  width: 100%;
+  border: 1px solid red;
+  padding-left: 10px;
+}
