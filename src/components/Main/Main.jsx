@@ -4,10 +4,12 @@ import Profile from './Profile/Profile'
 
 const Main = (props) => {
 
+
+
   // let state = props.store.getState().profilePage
   return (
   <main className={classes.main}>
-    <Profile profile={props.profile} />
+    <Profile profile={props.profile} status={props.status} updateStatus={props.updateStatus} />
     <AddpostContainer />
   </main>
   )

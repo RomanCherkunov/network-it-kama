@@ -13,6 +13,8 @@ let Users = (props) => {
         pages.push(i)
     }
 
+
+
     return  (
         <div> 
             <div>
@@ -26,8 +28,17 @@ let Users = (props) => {
                                 <img src={u.photos.small !=null ? u.photos.small: usersdefaultava} alt='' className={classes.userAvatarka}  />
                             </NavLink>
                             {u.followed
-                            ? <button onClick={() => {props.unfollow(u.id)}}>Unfollow</button> 
-                            : <button className={classes.follow} onClick={() => {props.follow(u.id)}}>Follow</button>}                          
+                            ? <button disabled={props.followingProgress.some(id => id === u.id)} onClick={() => {
+
+                                     props.unFollowThunk(u.id)
+
+                            }}>Unfollow</button> 
+                            : <button disabled={props.followingProgress.some(id => id === u.id)} className={classes.follow} onClick={() => {
+
+                                     props.followThunk(u.id)
+
+                            }}>Follow</button>
+                                }                          
                         </div>
 
                         <div className={classes.userInfo}>

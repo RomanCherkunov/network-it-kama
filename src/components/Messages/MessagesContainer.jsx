@@ -1,40 +1,30 @@
-import React from 'react'
 import Messages from './Messages'
 import { addDialogActionCreator, updateNewMessageTextActionCreator } from '../../redux/dialogs_reducer'
 import { connect } from 'react-redux'
+import React from 'react'
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import { compose } from 'redux';
 
-// function MessagesContainer(props) {
 
-//     let state = props.store.getState().dialogsPage
+class MessagesContainer extends React.Component {
 
-//     // let person = state.personsData.map((p) => <Person name={p.name} id={p.id} />)
 
-//     // let dialog = state.dialogsData.map((p) => <Dialog message={p.message} />)
-//     // let newMessageBody = state.newMessageBody
+    render() {
+        // if(!this.props.isAuth) return <Redirect to={'/login'} />
+        return <Messages {...this.props} />
+    
+    }
+}
 
-//     // let textMessage = React.createRef()
 
-//     function sendMessage() {
-//         props.store.dispatch(addDialogActionCreator())
-//     }
 
-//     function onMessageChangeText(text) {
-//         let action = updateNewMessageTextActionCreator(text)
-//         props.store.dispatch(updateNewMessageTextActionCreator(text))
-//     }
-
-//     return (
-//        <Messages sendMessage={sendMessage} onMessageChangeText={onMessageChangeText} newMessageText={state.newMessageText} 
-//                  personsData={state.personsData} dialogsData={state.dialogsData} />
-//     )
-// }
 
 let mapStateToProps = (state) => {
     return {
         dialogsData: state.dialogsPage.dialogsData,
         newMessageText: state.dialogsPage.newMessageText,
         personsData: state.dialogsPage.personsData,
-        dialogsPage: state.DialogsPage
+        dialogsPage: state.DialogsPage,
     }
 }
 
@@ -45,6 +35,7 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-const MessagesContainer = connect(mapStateToProps, mapDispatchToProps)(Messages)
 
-export default MessagesContainer
+
+
+export default compose(connect(mapStateToProps, mapDispatchToProps), withAuthRedirect)(MessagesContainer)

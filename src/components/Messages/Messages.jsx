@@ -2,18 +2,12 @@ import React from 'react'
 import Dialog from './Dialog/Dialog'
 import classes from './Messages.module.css'
 import Person from './person/Person'
-import { addDialogActionCreator, updateNewMessageTextActionCreator } from '../../redux/dialogs_reducer'
+import { Redirect } from 'react-router-dom'
 
 function Messages(props) {
-
-    // let state = props.store.getState().dialogsPage
-
     let person = props.personsData.map((p) => <Person name={p.name} id={p.id} key={p.id} />)
 
     let dialog = props.dialogsData.map((p) => <Dialog message={p.message} key={p.id} />)
-    // let newMessageBody = state.newMessageBody
-
-    // let textMessage = React.createRef()
 
     function sendMessage() {
         props.sendMessage()
@@ -23,6 +17,8 @@ function Messages(props) {
         let text = e.target.value
         props.onMessageChangeText(text)
     }
+
+    if(!props.isAuth) return <Redirect to={'/login'} />
 
     return (
         <div className={classes.messages}>
